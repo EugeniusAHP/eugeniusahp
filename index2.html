@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koko Wawan | Professional Options Trader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0B1120; /* Deep Navy */
+            --bg-secondary: #121A2F;
+            --accent-gold: #D4AF37;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-primary); 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a { text-decoration: none; transition: all 0.3s ease; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        /* Navbar */
+        header { 
+            padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; 
+            background-color: rgba(11, 17, 32, 0.95); backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-color);
+        }
+        .logo { font-size: 22px; font-weight: 700; color: var(--text-primary); font-family: 'Inter', sans-serif; letter-spacing: 1px; }
+        .logo span { color: var(--accent-gold); }
+        .nav-links a { color: var(--text-secondary); margin-left: 35px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* Hero Section */
+        .hero { 
+            display: flex; align-items: center; justify-content: space-between; 
+            padding: 120px 8%; min-height: 85vh; 
+        }
+        .hero-text { max-width: 50%; }
+        .subtitle { 
+            color: var(--accent-gold); font-size: 14px; text-transform: uppercase; 
+            letter-spacing: 2px; font-weight: 600; display: block; margin-bottom: 15px; 
+        }
+        .hero-text h1 { font-size: 64px; margin-bottom: 25px; line-height: 1.1; color: var(--text-primary); }
+        .hero-text p { font-size: 18px; color: var(--text-secondary); margin-bottom: 40px; font-weight: 300; }
+        
+        .btn-gold { 
+            padding: 16px 36px; background-color: var(--accent-gold); color: #000; 
+            font-weight: 600; font-size: 15px; border: none; border-radius: 4px; 
+            cursor: pointer; display: inline-block; font-family: 'Inter', sans-serif;
+        }
+        .btn-gold:hover { background-color: #F3CA4C; transform: translateY(-2px); }
+
+        .hero-img { 
+            width: 420px; height: 500px; 
+            background: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80') center/cover; 
+            border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+        }
+        .hero-img::after {
+            content: ''; position: absolute; bottom: -20px; left: -20px;
+            width: 100%; height: 100%; border: 2px solid var(--accent-gold);
+            border-radius: 8px; z-index: -1;
+        }
+
+        /* Playlist Section */
+        .section-padding { padding: 100px 8%; }
+        .bg-alt { background-color: var(--bg-secondary); }
+        
+        .section-header { text-align: center; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .section-header h2 { font-size: 42px; margin-bottom: 15px; }
+        .section-header p { color: var(--text-secondary); }
+        
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .video-card { background: var(--bg-main); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
+        .thumbnail { width: 100%; height: 200px; position: relative; display: flex; align-items: center; justify-content: center; background-color: #1E293B; }
+        .thumbnail::after { content: '▶'; font-size: 30px; color: #fff; background: rgba(0,0,0,0.5); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid #fff; }
+        .video-info { padding: 25px; }
+        .video-info h4 { font-family: 'Inter', sans-serif; font-size: 18px; margin-bottom: 10px; font-weight: 600; }
+        .video-info p { color: var(--text-secondary); font-size: 14px; }
+
+        /* Classes Section */
+        .cards-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .class-card { 
+            background: var(--bg-secondary); padding: 50px 40px; border-radius: 8px; 
+            width: 340px; border: 1px solid var(--border-color); text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .class-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+        
+        .class-card h3 { font-size: 28px; margin-bottom: 5px; color: var(--text-primary); }
+        .class-card .level { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px; display: block; }
+        
+        .class-card ul { list-style: none; margin-bottom: 40px; text-align: left; }
+        .class-card ul li { margin-bottom: 15px; color: var(--text-secondary); font-size: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        .class-card ul li:last-child { border-bottom: none; }
+        
+        .btn-outline { 
+            display: block; width: 100%; padding: 14px; background: transparent; 
+            color: var(--text-primary); border: 1px solid var(--border-color); 
+            border-radius: 4px; font-weight: 600; font-family: 'Inter', sans-serif;
+        }
+        .class-card:hover .btn-outline { background: var(--accent-gold); color: #000; border-color: var(--accent-gold); }
+
+        /* Footer */
+        footer { background: #070B14; padding: 80px 8% 40px; text-align: center; border-top: 1px solid var(--border-color); }
+        .footer-content { max-width: 700px; margin: 0 auto; }
+        footer h2 { font-size: 32px; margin-bottom: 25px; }
+        footer p { color: var(--text-secondary); margin-bottom: 40px; font-size: 15px; }
+        .socials a { 
+            display: inline-block; margin: 0 15px; color: var(--text-primary); 
+            font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+        }
+        .socials a:hover { color: var(--accent-gold); }
+        .copyright { margin-top: 60px; color: #475569; font-size: 13px; font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">KOKO<span>WAWAN</span></div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#portfolio">Portofolio</a>
+            <a href="#mentoring">Kelas Privat</a>
+            <a href="#about">Profil</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <span class="subtitle">Professional Options Trader</span>
+            <h1>Presisi.<br>Disiplin.<br>Profitabilitas.</h1>
+            <p>Trading bukanlah tebakan, melainkan probabilitas yang terukur. Pelajari cara membaca pasar dengan tenang dan eksekusi strategi dengan presisi bersama Koko Wawan.</p>
+            <a href="#mentoring" class="btn-gold">Mulai Perjalanan Anda</a>
+        </div>
+        <div class="hero-img">
+            </div>
+    </section>
+
+    <section id="portfolio" class="section-padding bg-alt">
+        <div class="section-header">
+            <h2>Log Strategi & Analisis</h2>
+            <p>Arsip materi edukasi dan analisis pasar, disusun berurutan untuk membangun fondasi trading Anda.</p>
+        </div>
+        
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <h4>01. Anatomi Pergerakan Harga</h4>
+                    <p>Memahami struktur dasar pasar sebelum mengambil keputusan.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <h4>02. Manajemen Risiko Institusional</h4>
+                    <p>Cara melindungi modal Anda dari volatilitas ekstrem.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <h4>03. Eksekusi Strategi Options</h4>
+                    <p>Memilih kontrak yang tepat berdasarkan momentum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mentoring" class="section-padding">
+        <div class="section-header">
+            <h2>Masih Belum Paham?</h2>
+            <p>Tingkatkan kurva belajar Anda melalui bimbingan langsung yang terstruktur.</p>
+        </div>
+        
+        <div class="cards-container">
+            <div class="class-card">
+                <h3>Beginner</h3>
+                <span class="level">Fondasi Dasar</span>
+                <ul>
+                    <li>Pengenalan Mekanisme Pasar</li>
+                    <li>Pemilihan Broker & Platform</li>
+                    <li>Membaca Arah Tren</li>
+                </ul>
+                <a href="https://wa.me/6281234567890?text=Halo%20Koko%20Wawan%2C%20saya%20ingin%20ikut%20kelas%20beginner%20nih.%20Boleh%20tanya-tanya%20dulu%3F" target="_blank" class="btn-outline">Hubungi Saya</a>
+            </div>
+            
+            <div class="class-card">
+                <h3>Intermediate</h3>
+                <span class="level">Analisis Lanjutan</span>
+                <ul>
+                    <li>Pendalaman Price Action</li>
+                    <li>Penyusunan Trading Plan</li>
+                    <li>Psikologi Trading Terapan</li>
+                </ul>
+                <a href="https://wa.me/6281234567890?text=Halo%20Koko%20Wawan%2C%20saya%20ingin%20ikut%20kelas%20intermediate%20nih.%20Boleh%20tanya-tanya%20dulu%3F" target="_blank" class="btn-outline">Hubungi Saya</a>
+            </div>
+
+            <div class="class-card">
+                <h3>Advanced</h3>
+                <span class="level">Mastery & Eksekusi</span>
+                <ul>
+                    <li>Strategi Options Kompleks</li>
+                    <li>Manajemen Portofolio</li>
+                    <li>1-on-1 Mentoring Intensif</li>
+                </ul>
+                <a href="https://wa.me/6281234567890?text=Halo%20Koko%20Wawan%2C%20saya%20ingin%20ikut%20kelas%20advanced%20nih.%20Boleh%20tanya-tanya%20dulu%3F" target="_blank" class="btn-outline">Hubungi Saya</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="about">
+        <div class="footer-content">
+            <h2>Tentang Koko Wawan</h2>
+            <p>Berangkat dari pengalaman nyata menghadapi dinamika pasar keuangan, Koko Wawan mendedikasikan platform ini untuk mengedukasi para trader. Fokus utama kami bukan pada janji keuntungan instan, melainkan pada pembentukan proses analitis yang disiplin, terukur, dan konsisten.</p>
+            <div class="socials">
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Telegram</a>
+            </div>
+            <div class="copyright">
+                © 2026 Koko Wawan. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
